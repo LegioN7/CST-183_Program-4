@@ -1,14 +1,23 @@
-// https://elearning.delta.edu/d2l/le/dropbox/2970298/261322/DownloadAttachment?fid=9504649
-// http://weather.uwyo.edu/upperair/sounding.html
+// Aaron Pelto
+// CST-183
+// Fall 2023
+
+
+//PDF Instructions: https://elearning.delta.edu/d2l/le/dropbox/2970298/261322/DownloadAttachment?fid=9504649
+//Data Website http://weather.uwyo.edu/upperair/sounding.html
+
+
 /*
 Write a Java program that will determine the risk of severe weather at a given weather station by utilizing measurements
 taken from a weather balloon. Weather balloons are used to observe upper air measurements.
-There are several severe weather indexes used by meteorologists. Two are included in this assignment. Each include a
-simple arithmetic formula and are defined to calculate values based on patterns and conditions likely to produce severe
-weather. They offer a forecaster a quick number that can be referenced to assist in judging weather risks on a given day.
-These measurements taken via weather balloons are not taken at standard heights, but instead at standard pressure
-levels (in the unit of millibars). The severe weather indexes your program will calculate require the following values (℃):
+There are several severe weather indexes used by meteorologists.
 
+Two are included in this assignment. Each include a simple arithmetic formula and are defined to calculate values based on patterns and conditions likely to produce severe weather.
+
+They offer a forecaster a quick number that can be referenced to assist in judging weather risks on a given day.
+
+These measurements taken via weather balloons are not taken at standard heights, but instead at standard pressure levels (in the unit of millibars).
+ The severe weather indexes your program will calculate require the following values (℃):
  */
 
 import javax.swing.*;
@@ -19,7 +28,7 @@ import java.util.Scanner;
 //T850 = 20 ℃, Td850 = 15 ℃, T700 = 3 ℃, Td700 = 1 ℃, and T500 = –9 ℃
 public class severeWeatherRisk {
 
-    // static values for the temperatures
+    // static values for the temperatures minimums and maximums
     public static final double temperatureEightHundredFiftyMin = -40;
     public static final double temperatureEightHundredFiftyMax = 40;
     public static final double temperatureDewPointEightHundredFiftyMin = -40;
@@ -44,6 +53,7 @@ public class severeWeatherRisk {
         return kIndex;
     }
 
+    // Severe Weather Texts for Total Total Index
     public static String totalTotalWeatherRiskCalc(double totalTotalIndex) {
 
         String totalTotalForecast = null;
@@ -67,6 +77,7 @@ public class severeWeatherRisk {
         return totalTotalForecast;
     }
 
+    // Severe Weather Texts for K Index
     public static String kIndexWeatherRiskCalc(double kIndexPlace) {
 
         String kIndexForecast = null;
@@ -138,11 +149,9 @@ public class severeWeatherRisk {
             double kIndexPlace = kIndexCalc(temperatureEightHundredFifty, dewPointEightHundredFifty, temperatureSevenHundred, dewPointSevenHundred, temperatureFiveHundred);
 
 
-            // Severe Weather Texts for Total Total Index
+            // Strings for the dialog box taken from the Severe Weather Calculations
             String totalTotalForecast = totalTotalWeatherRiskCalc(totalTotalIndex);
             String kIndexForecast = kIndexWeatherRiskCalc(kIndexPlace);
-
-            // Severe Weather Texts for K Index
 
 
             // Dialog Panels for the output
